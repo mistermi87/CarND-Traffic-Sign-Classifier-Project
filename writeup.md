@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
 
 
 [image1]: ./Resources/X_new.png "New traffic signs that were not in the testing set (Photos from german Streets by me)"
-[image2]: ./Resources/visualization.png "Visualization"
+[image2]: ./Resources/Visualization.png "Visualization"
 [image3]: ./Resources/relu1.png "Traffic Sign 6 [Turn Left only ahead] after 1st Layer activation"
 [image4]: ./Resources/relu2.png "Traffic Sign 6 [Turn Left only ahead] after 2nd Layer activation"
 [image5]: ./Resources/Dataset-Classes.png "Histogram of Dataset Classes"
