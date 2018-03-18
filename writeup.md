@@ -32,7 +32,12 @@ The goals / steps of this project are the following:
 
 #### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+This is the writeup. I have to versions of the project:
+* Version 1: 660000 Trainable Variables and a testing accuracy of 95,9 [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+* Version 2: 800000 Trainable Variables and a testing accuracy of 96,3[project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+
+The second version is more accurate, but because I want to use this code on a Raspberry Pi, I tried to keep the model as small as possible. That is why I kept the first version.
+This writeup focuses on the first version.
 
 ### Data Set Summary & Exploration
 
