@@ -326,6 +326,6 @@ First Layer:
 It is easy to see that certain nodes focus on edges going from dark to bright or vice versa. Some nodes are trained to identify vertical edges or diagonal edges. Those diagonal edges help to highlight the arrow in some nodes.  One node activates the whole sign, maybe the model has learned to recognize blue signs here? One node is highly activated on the bend of the arrow. Some nodes highlight the white inner part of the yield sign below the actual sign, but this information is not used in the following layers.
 
 Second Layer
-! [[Turn Right only ahead] after 2nd Layer activation][image4]
+![[Turn Right only ahead] after 2nd Layer activation][image4]
 
 Here the information in the layer is already to abstract to connect to a certain characteristic of the input.
