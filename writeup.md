@@ -33,8 +33,8 @@ The goals / steps of this project are the following:
 #### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
 This is the writeup. I have to versions of the project:
-* Version 1: 660000 Trainable Variables and a testing accuracy of 95,9 [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
-* Version 2: 800000 Trainable Variables and a testing accuracy of 96,3[project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+* Version 1: 660000 Trainable Variables and a testing accuracy of 95,9 [project code](./Traffic_Sign_Classifier-660K.ipynb)
+* Version 2: 800000 Trainable Variables and a testing accuracy of 96,3[project code](./Traffic_Sign_Classifier-800K.ipynb)
 
 The second version is more accurate, but because I want to use this code on a Raspberry Pi, I tried to keep the model as small as possible. That is why I kept the first version.
 This writeup focuses on the first version.
@@ -43,8 +43,8 @@ This writeup focuses on the first version.
 
 #### 1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
-I used the array.shape function retrieve data about the data:
-I order to get the bumber of classes I calculated the difference i the maximum label number and the minimum. A plot of the histogram confirmed that there are no empty classes
+I used the array.shape() function to retrieve the Shape of the:
+I order to get the bumber of classes I calculated the difference of the maximum label number and the minimum of training/validation/testing datasets. A plot of the histogram confirmed that there are no empty classes
 
 * The overal size of the training data is (34799, 32, 32, 3)
 * The size of training set is 34799
@@ -56,6 +56,7 @@ I order to get the bumber of classes I calculated the difference i the maximum l
 #### 2. Include an exploratory visualization of the dataset.
 
 Here is a distribution of the different classes over the whole data:
+
 ![Histrogram][image5]
 
 It is possible to see that the there is a different amount of data available for each class, but that the overal distribition between training/validation/testing is roughly 0.67/0.09/0.24 in each class.
@@ -75,7 +76,7 @@ It becomes apparent, that image normalization is necessary, as some Images have 
 I copied the training data three times and concatenated it to a long array of ~140000 images. The copied images were altered as follows: 
 * the first copied part was rotated randomly with up to +/- 20 deg. In order to avoid white corners in the rotated images, the images were scaled appropriately
 * the second copied part was just scaled randomly up to a factor of 1/0.75. There was no shifting of the center of the image
-	> I tried to use the tensorflow functions of  tf.contrib.image. ... to accelarate the process by using my GPU for these operations, but it seems that it these functions are not yet supported in Windows 10 in our tensorflow version [Github Issue](https://github.com/tensorflow/tensorflow/issues/9672)
+	> I tried to use the tensorflow functions of  tf.contrib.image. ... to accelarate the processes by using my GPU for these operations, but it seems that it these functions are not yet supported in Windows 10 in our tensorflow version [Github Issue](https://github.com/tensorflow/tensorflow/issues/9672)
 * the last copied part was altered by overlaying a random shadow on the image. This was done by darkening the image on one side of a line that started from a random point on the upper edge of the image and ended at a random point on the lower edge of the image.
 	> This code was not mine but from [here](https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9). I altered it by making it available for all input image sizes and omitting the RGB-->HLS-->RGB-conversion as it does not work well with aliasing artifacts in the small images and will give strong rainbow edges. Instead of manipulating the "L"(Lightness) dimension of the HLS-space I just multiplied each RGB-channel by 0.75 in the "shaded" part
 
@@ -84,7 +85,7 @@ I realized that my model had a tendency to overfit the training data. After intr
 
 #### Normalizing
 
-I normalized all images (Train+ Augmentation, Valdiation, Testing)  to values between 0 and 1. Additionally i applied contrast stretching (taking into account the maximum and minimum of all channels, so that no information is lost by clipping in R,B or G and no color shift takes place)  I did not reduce to grayscale because especially in signs the color information of a blue vs a read circle might be crucial information. In the [provided Paper in the Notebook](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) it is also possible to see, that small neural networks perform better with the RGB-Version of the Traffic-Sign Dataset
+I normalized all images (Train & Augmentation, Valdiation, Testing)  to values between 0 and 1. Additionally I applied contrast stretching (taking into account the maximum and minimum of all channels, so that no information is lost by clipping in R,B or G and no color shift takes place)  I did not reduce to grayscale because especially in signs the color information of a blue vs a read circle might be crucial information. In the [provided Paper in the Notebook](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) it is also possible to see, that small neural networks perform better with the RGB-Version of the Traffic-Sign Dataset
 
 Here are two of the random examples from above: original, randomly rotated, randomly zoomed and with random shadow. All of those images are normalized.
 ![Augumented and normlized Example images][image7]
